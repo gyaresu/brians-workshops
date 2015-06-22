@@ -1,13 +1,12 @@
 import React from 'react'
-//import app from 'ampersand-app'
-
 
 export default React.createClass({
   displayName: 'Home',
-  render: function () {
+  render () {
+    const {data} = this.props
     return (
       <div>
-        {this.props}
+        <h1>{data}</h1>
       </div>
     )
   }

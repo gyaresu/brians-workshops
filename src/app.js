@@ -1,11 +1,13 @@
 import app from 'ampersand-app'
 import Router from './router'
+import './styles/main.styl'
 
-require('./styles/main.styl')
+window.app = app
 
-window.app = app.extend({
+app.extend({
   init () {
     this.router = new Router()
+    this.router.history.start()
   }
 })
 

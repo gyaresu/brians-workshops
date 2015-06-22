@@ -4,5 +4,7 @@ var getConfig = require('hjs-webpack')
 module.exports = getConfig({
   in: 'src/app.js',
   out: 'public',
-  clearBeforeBuild: true
+  clearBeforeBuild: true,
+  isDev: process.env.NODE_ENV !== 'production',
+  hostname: 'shazbot.local'
 })
