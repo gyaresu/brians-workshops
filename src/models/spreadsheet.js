@@ -1,13 +1,13 @@
-import Model from 'ampersand-model'
+var Sheet = require('google-spreadsheet')
+var workshop = new Sheet('153rVXCt4nlQn8Fj80GmWOLO5_aF4phW0MZrNIZfpUc8')
 
-export default Model.extend({
-  url: 'https://spreadsheets.google.com/feeds/',
-
-  ajaxConfig () {
-    return {
-      headers: {
-        Authorization: 'key=AIzaSyB2ISWvgHUGV_wR2JIHmJXCLQ2Ms7aGhzc'
-      }
+function data (row, cb) {
+  workshop.getRows(row, function (err, sheet) {
+    if (err) {
+      cb(err)
     }
-  }
-})
+    cb(sheet)
+  })
+}
+
+module.exports = data
